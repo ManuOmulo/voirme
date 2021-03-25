@@ -19,13 +19,17 @@ const Movies = () => {
   const currentlyAiring = useSelector(state => state.requestCurrentlyAiringReducer.currentlyAiring)
   const dispatch = useDispatch()
 
+  const API_URL = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=4ea1a39dbbbf151bd11a686a7c6ee604&page=1`
+
+  const SEARCH_URL = `https://api.themoviedb.org/3/search/multi?api_key=4ea1a39dbbbf151bd11a686a7c6ee604&language=en-US&query=good%20girls&page=1`
+
   useEffect(() => {
-    dispatch(requestAllMovies())
+    dispatch(requestAllMovies(API_URL))
     dispatch(requestTrendingDaily())
     dispatch(requestPopular())
     dispatch(requestNewRealeses())
     dispatch(requestCurrentlyAiring())
-  }, [dispatch])
+  }, [dispatch, API_URL])
 
 
   console.log(trending)

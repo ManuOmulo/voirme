@@ -22,8 +22,6 @@ import {
   REQUEST_CURRENTLY_AIRING_FAILED
 } from "../constants/moviesConstants"
 
-const API_URL = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=4ea1a39dbbbf151bd11a686a7c6ee604&page=1`
-
 const API_TRENDING_DAY = `https://api.themoviedb.org/3/trending/all/day?api_key=4ea1a39dbbbf151bd11a686a7c6ee604`
 
 const POPULAR_ON_TV = `https://api.themoviedb.org/3/tv/popular?api_key=4ea1a39dbbbf151bd11a686a7c6ee604&language=en-US&page=1`
@@ -39,9 +37,9 @@ export const setSearchFieldMovies = (text) => ({
   payload: text,
 })
 
-export const requestAllMovies = () => dispatch => {
+export const requestAllMovies = (searchUrl) => dispatch => {
   dispatch({ type: REQUEST_ALL_MOVIES_PENDING })
-  fetch(API_URL)
+  fetch(searchUrl)
     .then(res => res.json())
     .then(data => dispatch({ type: REQUEST_ALL_MOVIES_SUCCESS, payload: data.results }))
     .catch(error => dispatch({ type: REQUEST_ALL_MOVIES_FAILED, payload: error }))

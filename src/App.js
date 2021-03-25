@@ -2,10 +2,14 @@ import React from "react"
 
 import Movies from "./pages/movies/movies"
 
+import ErrorBoundary from "./custom/ErrorBoundary"
+
 const App = () => {
   return(
     <div>
-      <Movies />
+      <ErrorBoundary>
+        <Movies />
+      </ErrorBoundary>
     </div>
   )
 }
