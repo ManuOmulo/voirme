@@ -17,7 +17,15 @@ import {
 
   REQUEST_CURRENTLY_AIRING_PENDING,
   REQUEST_CURRENTLY_AIRING_SUCCESS,
-  REQUEST_CURRENTLY_AIRING_FAILED
+  REQUEST_CURRENTLY_AIRING_FAILED,
+
+  REQUEST_TV_SERIES_GENRES_PENDING,
+  REQUEST_TV_SERIES_GENRES_SUCCESS,
+  REQUEST_TV_SERIES_GENRES_FAILED,
+
+  REQUEST_MOVIE_GENRES_PENDING,
+  REQUEST_MOVIE_GENRES_SUCCESS,
+  REQUEST_MOVIE_GENRES_FAILED
 } from "../constants/moviesConstants"
 
 // ###################### All Movies #######################
@@ -135,3 +143,48 @@ export const requestCurrentlyAiringReducer = (state=initialStateCurrentlyAiring,
   }
 }
 
+// ################### Movie Genres ##################
+const initialStateMovieGenres = {
+  isPending: false,
+  movieGenres: [],
+  error: ""
+}
+
+export const requestMovieGenresReducer = (state=initialStateMovieGenres, action={}) => {
+  switch(action.type) {
+    case REQUEST_MOVIE_GENRES_PENDING:
+      return { ...state, isPending: true }
+
+    case REQUEST_MOVIE_GENRES_SUCCESS:
+      return { ...state, movieGenres: action.payload, isPending: false }
+
+    case REQUEST_MOVIE_GENRES_FAILED:
+      return { ...state, error: action.payload, isPending: false }
+
+    default:
+      return state
+  }
+}
+
+// ################## Tv Series Genres ##################
+const initialStateTvGenres = {
+  isPending: false,
+  tvGenres: [],
+  error: ""
+}
+
+export const requestTvGenresReducer = (state=initialStateTvGenres, action={}) => {
+  switch(action.type) {
+    case REQUEST_TV_SERIES_GENRES_PENDING:
+      return { ...state, isPending: true }
+
+    case REQUEST_TV_SERIES_GENRES_SUCCESS:
+      return { ...state, tvGenres: action.payload, isPending: false }
+
+    case REQUEST_TV_SERIES_GENRES_FAILED:
+      return { ...state, error: action.payload, isPending:false }
+
+    default:
+      return state
+  }
+}

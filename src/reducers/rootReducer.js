@@ -8,7 +8,9 @@ import {
   requestTrendingReducer,
   requestPopularReducer,
   requestNewRealesesReducer,
-  requestCurrentlyAiringReducer
+  requestCurrentlyAiringReducer,
+  requestMovieGenresReducer,
+  requestTvGenresReducer
 } from "../reducers/movieReducer"
 
 const rootReducer = combineReducers({
@@ -17,7 +19,9 @@ const rootReducer = combineReducers({
   requestTrendingReducer,
   requestPopularReducer,
   requestNewRealesesReducer,
-  requestCurrentlyAiringReducer
+  requestCurrentlyAiringReducer,
+  requestTvGenresReducer,
+  requestMovieGenresReducer
 })
 
 export default rootReducer

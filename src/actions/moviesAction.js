@@ -19,7 +19,15 @@ import {
 
   REQUEST_CURRENTLY_AIRING_PENDING,
   REQUEST_CURRENTLY_AIRING_SUCCESS,
-  REQUEST_CURRENTLY_AIRING_FAILED
+  REQUEST_CURRENTLY_AIRING_FAILED,
+
+  REQUEST_TV_SERIES_GENRES_PENDING,
+  REQUEST_TV_SERIES_GENRES_SUCCESS,
+  REQUEST_TV_SERIES_GENRES_FAILED,
+
+  REQUEST_MOVIE_GENRES_PENDING,
+  REQUEST_MOVIE_GENRES_SUCCESS,
+  REQUEST_MOVIE_GENRES_FAILED
 } from "../constants/moviesConstants"
 
 const API_TRENDING_DAY = `https://api.themoviedb.org/3/trending/all/day?api_key=4ea1a39dbbbf151bd11a686a7c6ee604`
@@ -29,6 +37,10 @@ const POPULAR_ON_TV = `https://api.themoviedb.org/3/tv/popular?api_key=4ea1a39db
 const UPCOMING_RELEASES_MOVIES = `https://api.themoviedb.org/3/movie/upcoming?api_key=4ea1a39dbbbf151bd11a686a7c6ee604&language=en-US&page=1`
 
 const ON_AIR_TV_SERIES = `https://api.themoviedb.org/3/tv/on_the_air?api_key=4ea1a39dbbbf151bd11a686a7c6ee604&language=en-US&page=1`
+
+const MOVIE_GENRES = `https://api.themoviedb.org/3/genre/movie/list?api_key=4ea1a39dbbbf151bd11a686a7c6ee604&language=en-US`
+
+const TV_GENRES = `https://api.themoviedb.org/3/genre/tv/list?api_key=4ea1a39dbbbf151bd11a686a7c6ee604&language=en-US`
 
 
 //############### All Movies ################
@@ -79,4 +91,22 @@ export const requestCurrentlyAiring = () => dispatch => {
     .then(res => res.json())
     .then(data => dispatch({ type: REQUEST_CURRENTLY_AIRING_SUCCESS, payload: data.results }))
     .catch(error => dispatch({ type: REQUEST_CURRENTLY_AIRING_FAILED, payload: error }))
+}
+
+// ############# Movie Genres ###################
+export const requestMovieGenres = () => dispatch => {
+  dispatch({ type: REQUEST_MOVIE_GENRES_PENDING })
+  fetch(MOVIE_GENRES)
+    .then(res => res.json())
+    .then(data => dispatch({ type: REQUEST_MOVIE_GENRES_SUCCESS, payload: data.genres }))
+    .catch(error => dispatch({ type: REQUEST_MOVIE_GENRES_FAILED, payload: error }))
+}
+
+// ############## Tv Series Genres #################
+export const requestTvGenres = () => dispatch => {
+  dispatch({ type: REQUEST_TV_SERIES_GENRES_PENDING })
+  fetch(TV_GENRES)
+    .then(res =>res.json())
+    .then(data => dispatch({ type: REQUEST_TV_SERIES_GENRES_SUCCESS, payload: data.genres }))
+    .catch(error => dispatch({ type: REQUEST_TV_SERIES_GENRES_FAILED, payload: error }))
 }
