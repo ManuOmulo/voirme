@@ -6,10 +6,24 @@ const NewReleasesComponent = (props) => {
 
   return (
     <div className="movie-container">
-      <img
-        src={IMG_PATH + movie.poster_path}
-        alt={movie.title}
-      />
+      <div className="movie-container-image">
+        <img
+          src={IMG_PATH + movie.poster_path}
+          alt={movie.title}
+        />
+        <div className="rating"><i className="fas fa-star"></i> {movie.vote_average}</div>
+      </div>
+
+      <div className="movie-container-info">
+        <h2>{movie.title}</h2>
+        <h3>Genre: <em>{giveGenre(movie.genre_ids[0])}</em></h3>
+        <p>
+          <span style={{marginLeft: 0}}><strong>Language: </strong>{movie.original_language}</span>
+        </p>
+        <p>
+          <strong>Release Date: </strong>{movie.release_date}
+        </p>
+      </div>
     </div>
   )
 }

@@ -1,6 +1,10 @@
 import React, { useEffect } from "react"
 
+import "./scss_movies/movie.scss"
+
+// Redux
 import { useSelector, useDispatch } from "react-redux"
+import { setIsVisible } from "../../actions/navbarAction"
 import {
   requestTrendingDaily,
   requestPopular,
@@ -10,10 +14,14 @@ import {
   requestTvGenres
 } from "../../actions/moviesAction"
 
-import SearchMoviesContainer from "./searchMoviesContainer"
+// navbar
+import MovieNav from "./movieNav"
 
+// Displays
 import TrendingComponent from "./categories/~TrendingComponent"
 import PopularShowsComponent from "./categories/~PopularshowsComponent"
+import NewReleasesComponent from "./categories/~NewReleasesComponent"
+import CurrentlyAiringComponent from "./categories/~CurrentlyAiringComponent"
 
 const Movies = () => {
   const trending = useSelector(state => state.requestTrendingReducer.trending)
@@ -22,6 +30,7 @@ const Movies = () => {
   const currentlyAiring = useSelector(state => state.requestCurrentlyAiringReducer.currentlyAiring)
   const movieGenres = useSelector(state => state.requestMovieGenresReducer.movieGenres)
   const tvGenres = useSelector(state => state.requestTvGenresReducer.tvGenres)
+  const isVisible = useSelector(state => state.navbarReducer.isVisible)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -44,6 +53,11 @@ const Movies = () => {
     return ""
   }
 
+  const toggleClass = (e) => {
+    e.preventDefault()
+    dispatch(setIsVisible(!isVisible))
+  }
+
   const TrendingMovies = trending.map(movie => {
     return (
       <TrendingComponent movie={movie} giveGenre={giveGenre} key={movie.id} />
@@ -56,24 +70,60 @@ const Movies = () => {
     )
   })
 
-  console.log(newReleases)
-  console.log(currentlyAiring)
+  const NewReleases = newReleases.map(movie => {
+    return (
+      <NewReleasesComponent movie={movie} giveGenre={giveGenre} key={movie.id} />
+    )
+  })
+
+  const CurrentlyAiring = currentlyAiring.map(series => {
+    return (
+      <CurrentlyAiringComponent movie={series} giveGenre={giveGenre} key={series.id} />
+    )
+  })
 
   return(
-    <div>
-      <h1>Movies &#38; Series</h1>
+    <div className="movie-window">
+      <button className="nav-btn open-btn" onClick={toggleClass}>
+        <i className="fas fa-bars"></i>
+      </button>
+
+      <MovieNav />
+
+      <div className="banner">
+        <h2>Unlimited Movies &#38; Series</h2>
+        <p>Search and we Deliver</p>
+      </div>
+
       <div className="allmovies-container">
         <div className="trending-container">
-          <h2>Trending Movies And Series</h2>
-          {TrendingMovies}
+          <h2 className="individual-header">Trending Movies And Series</h2>
+          <div className="trending">
+            {TrendingMovies}
+          </div>
         </div>
 
         <div className="popular-container">
-          <h2>Most Viewed and Searched</h2>
-          {PopularShows}
+          <h2 className="individual-header">Weekly Hot Searches</h2>
+          <div className="popular">
+            {PopularShows}
+          </div>
+        </div>
+
+        <div className="newReleases-container">
+          <h2 className="individual-header">New Releases</h2>
+          <div className="newReleases">
+            {NewReleases}
+          </div>
+        </div>
+
+        <div className="currentlyAiring-container">
+          <h2 className="individual-header">Currently on Tv</h2>
+          <div className="currently">
+            {CurrentlyAiring}
+          </div>
         </div>
       </div>
-      <SearchMoviesContainer />
     </div>
   )
 }

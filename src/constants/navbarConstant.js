@@ -1,0 +1,1 @@
+export const CHANGE_IS_VISIBLE = "CHANGE_IS_VISIBLE"

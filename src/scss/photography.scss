@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=BioRhyme+Expanded&family=Bungee+Shade&family=Fredericka+the+Great&family=Monoton&family=Mulish:wght@400;700&family=Train+One&display=swap');
+
+$color-1: #EBC3DB;
+$color-2: #6C6F7D;
+$color-3: #985F6F;
+$color-4: #4E4C67;
+
+.photo-window {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: #fff;
+  font-family: "Muli", sans-serif;
+
+  .top {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    height: 50px;
+    width: 100%;
+    text-align: center;
+
+    .photo-logo {
+      position: relative;
+
+      .p1 {
+        font-family: "Monoton", sans-serif;
+        font-size: 23px;
+        color: $color-3;
+      }
+
+      .p2 {
+        font-family: "Bungee Shade", sans-serif;
+        text-transform: uppercase;
+        font-size: 25px;
+        margin-top: -12px;
+        color: $color-4;
+      }
+    }
+  }
+}

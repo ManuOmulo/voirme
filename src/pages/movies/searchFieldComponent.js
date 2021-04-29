@@ -4,7 +4,7 @@ const SearchFieldComponent = (props) => {
 
   const { onSearchSubmit, handleChange, searchMovies } = props
   return (
-    <div>
+    <div className="searchbar">
       <input
         type="search"
         name="searchItem"

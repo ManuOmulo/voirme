@@ -2,7 +2,8 @@
 import { combineReducers } from "redux"
 
 // ################# movies ####################
-import { searchMoviesReducer } from "../reducers/searchMoviesReducer"
+import { searchMoviesReducer } from "./searchMoviesReducer"
+import { navbarReducer } from "./navbarReducer"
 import {
   requestAllMoviesReducer,
   requestTrendingReducer,
@@ -11,10 +12,11 @@ import {
   requestCurrentlyAiringReducer,
   requestMovieGenresReducer,
   requestTvGenresReducer
-} from "../reducers/movieReducer"
+} from "./movieReducer"
 
 const rootReducer = combineReducers({
   searchMoviesReducer,
+  navbarReducer,
   requestAllMoviesReducer,
   requestTrendingReducer,
   requestPopularReducer,
