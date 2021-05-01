@@ -1,8 +1,10 @@
 import React from "react"
+import SkeletonElement from "../../../skeletons/SkeletonElement";
 
 const TrendingComponent = (props) => {
   const IMG_PATH = "https://image.tmdb.org/t/p/w1280"
   const { movie, giveGenre } = props
+  const poster = IMG_PATH + movie.poster_path
 
   const type = movie.media_type === "movie" ? "Movie" : "Series"
 
@@ -10,7 +12,7 @@ const TrendingComponent = (props) => {
     <div className="movie-container">
       <div className="movie-container-image">
         <img
-          src={IMG_PATH + movie.poster_path}
+          src={poster || <SkeletonElement type="poster"/>}
           alt={movie.title || movie.original_title || movie.original_name}
         />
         <div className="rating"><i className="fas fa-star"></i> {movie.vote_average}</div>

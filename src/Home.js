@@ -1,4 +1,5 @@
 import React from "react"
+import CarouselContainer from "./custom/CarouselContainer";
 
 // components
 import Nav from "./Nav"
@@ -18,7 +19,9 @@ const Home = () => {
         <i className="far fa-heart"></i>
       </div>
 
-      <div className="home-reel"></div>
+      <div className="home-reel">
+        <CarouselContainer />
+      </div>
 
       <div className="deals">
         <div className="container-header">

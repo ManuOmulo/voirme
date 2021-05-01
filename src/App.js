@@ -2,7 +2,7 @@ import React from "react"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 
 // css
-import "./scss/main.scss"
+import "./scss/App.scss"
 
 import Home from "./Home"
 import Movies from "./pages/movies/movies"

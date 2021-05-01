@@ -22,12 +22,17 @@ import TrendingComponent from "./categories/~TrendingComponent"
 import PopularShowsComponent from "./categories/~PopularshowsComponent"
 import NewReleasesComponent from "./categories/~NewReleasesComponent"
 import CurrentlyAiringComponent from "./categories/~CurrentlyAiringComponent"
+import SkeletonMovies from "../../skeletons/components/SkeletonMovies";
 
 const Movies = () => {
   const trending = useSelector(state => state.requestTrendingReducer.trending)
+  const isPendingTrending = useSelector(state => state.requestTrendingReducer.isPending)
   const popularShows = useSelector(state => state.requestPopularReducer.popularTv)
+  const isPendingPopular = useSelector(state => state.requestPopularReducer.isPending)
   const newReleases = useSelector(state => state.requestNewRealesesReducer.newReleases)
+  const isPendingNew = useSelector(state=> state.requestNewRealesesReducer.isPending)
   const currentlyAiring = useSelector(state => state.requestCurrentlyAiringReducer.currentlyAiring)
+  const isPendingCurrent = useSelector(state=>state.requestCurrentlyAiringReducer.isPending)
   const movieGenres = useSelector(state => state.requestMovieGenresReducer.movieGenres)
   const tvGenres = useSelector(state => state.requestTvGenresReducer.tvGenres)
   const isVisible = useSelector(state => state.navbarReducer.isVisible)
@@ -57,6 +62,10 @@ const Movies = () => {
     e.preventDefault()
     dispatch(setIsVisible(!isVisible))
   }
+
+  const loading = [1,2,3,4,5,6,7].map(index => (
+    <SkeletonMovies key={index} theme="dark"/>
+  ))
 
   const TrendingMovies = trending.map(movie => {
     return (
@@ -99,28 +108,28 @@ const Movies = () => {
         <div className="trending-container">
           <h2 className="individual-header">Trending Movies And Series</h2>
           <div className="trending">
-            {TrendingMovies}
+            {isPendingTrending ? loading : TrendingMovies}
           </div>
         </div>
 
         <div className="popular-container">
           <h2 className="individual-header">Weekly Hot Searches</h2>
           <div className="popular">
-            {PopularShows}
+            {isPendingPopular ? loading : PopularShows}
           </div>
         </div>
 
         <div className="newReleases-container">
           <h2 className="individual-header">New Releases</h2>
           <div className="newReleases">
-            {NewReleases}
+            {isPendingNew ? loading : NewReleases}
           </div>
         </div>
 
         <div className="currentlyAiring-container">
           <h2 className="individual-header">Currently on Tv</h2>
           <div className="currently">
-            {CurrentlyAiring}
+            {isPendingCurrent ? loading : CurrentlyAiring}
           </div>
         </div>
       </div>

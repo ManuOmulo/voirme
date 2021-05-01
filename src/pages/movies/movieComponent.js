@@ -1,4 +1,5 @@
 import React from "react"
+import SkeletonElement from "../../skeletons/SkeletonElement";
 
 import "./scss_movies/search_page.scss"
 
@@ -8,10 +9,11 @@ const MovieComponent = (props) => {
 
   const type = movie.media_type === "movie" ? "Movie" : "Series"
   const genre = movie.genre_ids ? movie.genre_ids[0] : undefined
+  const poster = IMG_PATH + movie.poster_path
 
   return(
     <div className="movie-card">
-      <img src={IMG_PATH + movie.poster_path} alt={movie.original_title}/>
+      <img src={poster ? poster :  <SkeletonElement type="search-poster"/>} alt={movie.original_title}/>
 
       <div className="movie-info">
         <h3>{movie.title || movie.original_name}</h3>

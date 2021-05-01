@@ -14,6 +14,10 @@ $color-4: #4E4C67;
   background-color: #fff;
   font-family: "Muli", sans-serif;
 
+  .container-header h3 {
+    font-size: 18px;
+  }
+
   .top {
     position: relative;
     display: flex;
@@ -47,12 +51,32 @@ $color-4: #4E4C67;
   }
 
   .home-reel {
+    position: relative;
     display: flex;
-    height: 200px;
+    height: 250px;
     width: 98%;
     margin-top: 15px;
     border-radius: 5px;
-    background: #f2f2f2;
+    background: #fff;
+
+    .slider {
+      overflow: hidden;
+
+      figure {
+        position: relative;
+        width: 500%;
+        height: 100%;
+        margin: 0;
+        left: 0;
+        animation: slider 20s infinite;
+
+        img {
+          width: 20%;
+          height: 100%;
+          float: left;
+        }
+      }
+    }
   }
 
   .deals {
@@ -106,5 +130,43 @@ $color-4: #4E4C67;
       background-color: #f2f2f2;
       margin-top: 5px;
     }
+  }
+}
+
+@keyframes slider {
+  0% {
+    left: 0
+  }
+
+  20% {
+    left: 0;
+  }
+
+  25% {
+    left: -100%;
+  }
+
+  45% {
+    left: -100%;
+  }
+
+  50% {
+    left: -200%;
+  }
+
+  70% {
+    left: -200%;
+  }
+
+  75% {
+    left: -300%;
+  }
+
+  95% {
+    left: -300%;
+  }
+
+  100% {
+    left: -400%;
   }
 }

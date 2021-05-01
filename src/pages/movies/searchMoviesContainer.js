@@ -12,9 +12,11 @@ import MovieNav from "./movieNav"
 
 import Search from "./Search"
 import MovieComponent from "./movieComponent"
+import SkeletonSearch from "../../skeletons/components/SkeletonSearch";
 
 const SearchMoviesContainer = () => {
   const movieList = useSelector(state => state.requestAllMoviesReducer.allMovies)
+  const isPendingMovies = useSelector(state => state.requestAllMoviesReducer.isPending)
   const movieGenres = useSelector(state => state.requestMovieGenresReducer.movieGenres)
   const tvGenres = useSelector(state => state.requestTvGenresReducer.tvGenres)
   const isVisible = useSelector(state => state.navbarReducer.isVisible)
@@ -64,6 +66,10 @@ const SearchMoviesContainer = () => {
     )
   })
 
+  const loading = [1,2,3,4,5,6,7,8,9,10].map(index => (
+    <SkeletonSearch key={index} theme="dark"/>
+  ))
+
   return (
     <div className="movie-window-search">
       <button className="nav-btn open-btn" onClick={toggleClass}>
@@ -85,7 +91,7 @@ const SearchMoviesContainer = () => {
       <Search />
 
       <div className="allmovies-search">
-        { allMovies }
+        {isPendingMovies? loading : allMovies }
       </div>
     </div>
   )
