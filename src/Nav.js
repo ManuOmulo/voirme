@@ -7,6 +7,10 @@ const Nav = () => {
 
   return (
     <div className="main-nav">
+      <div className="logo">
+        <p>Voirme</p>
+      </div>
+
       <ul>
         <NavLink
           to="/"
@@ -59,6 +63,10 @@ const Nav = () => {
           <p>Movies</p>
         </NavLink>
       </ul>
+
+      <div className="favourites">
+        <i className="far fa-heart"></i>
+      </div>
     </div>
   )
 }

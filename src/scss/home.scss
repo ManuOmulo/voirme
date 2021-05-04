@@ -31,7 +31,7 @@ $color-4: #4E4C67;
       left: 20px;
       font-family: "Monoton", sans-serif;
       font-weight: 400;
-      font-size: 25px;
+      font-size: 22px;
       color: $color-3;
       text-align: center;
       margin-top: 10px;
@@ -40,13 +40,18 @@ $color-4: #4E4C67;
     i {
       position: absolute;
       right: 10px;
-      font-size: 18px;
+      font-size: 15px;
       cursor: pointer;
       color: #fff;
       border: 2px solid $color-4;
       border-radius: 5px;
       padding: 5px;
       background-color: $color-4;
+
+      &:active {
+        transform: scale(0.97);
+        outline: none;
+      }
     }
   }
 
@@ -55,7 +60,7 @@ $color-4: #4E4C67;
     display: flex;
     height: 250px;
     width: 98%;
-    margin-top: 15px;
+    margin-top: 10px;
     border-radius: 5px;
     background: #fff;
 
@@ -168,5 +173,18 @@ $color-4: #4E4C67;
 
   100% {
     left: -400%;
+  }
+}
+
+@media screen and (min-width: 650px) {
+  .home-window {
+    .top {
+      display: none;
+    }
+
+    .home-reel {
+      margin: 100px 0 0;
+      height: 350px;
+    }
   }
 }
