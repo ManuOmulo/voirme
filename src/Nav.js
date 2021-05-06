@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom"
 import "./scss/nav.scss"
 
 const Nav = () => {
-
   return (
     <div className="main-nav">
       <div className="logo">

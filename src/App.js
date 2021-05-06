@@ -1,12 +1,11 @@
 import React from "react"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import { ImportComponent } from "./custom/Loading"
 
 // css
 import "./scss/App.scss"
 
 import Home from "./Home"
-import Movies from "./pages/movies/movies"
-import SearchMoviesContainer from "./pages/movies/searchMoviesContainer"
 import Photography from "./pages/photography/Photography"
 import MenSection from "./pages/Men"
 import MenShoesComponent from "./pages/shoes/MenShoesComponent"
@@ -16,6 +15,9 @@ import WomenClothingComponent from "./pages/clothing/WomenClothingComponent"
 import WomenShoesComponent from "./pages/shoes/WomenShoesComponent"
 
 import ErrorBoundary from "./custom/ErrorBoundary"
+
+const Movies = ImportComponent("./pages/movies/movies")
+const SearchMoviesContainer = ImportComponent("./pages/movies/searchMoviesContainer")
 
 const App = () => {
   return(
