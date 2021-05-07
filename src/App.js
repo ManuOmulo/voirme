@@ -1,23 +1,77 @@
 import React from "react"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
-import { ImportComponent } from "./custom/Loading"
+import Loadable from "react-loadable"
+import { Loading } from "./custom/Loading"
 
 // css
 import "./scss/App.scss"
 
 import Home from "./Home"
-import Photography from "./pages/photography/Photography"
-import MenSection from "./pages/Men"
-import MenShoesComponent from "./pages/shoes/MenShoesComponent"
-import MenClothingComponent from "./pages/clothing/MenClothingComponent"
-import WomenSection from "./pages/Women"
-import WomenClothingComponent from "./pages/clothing/WomenClothingComponent"
-import WomenShoesComponent from "./pages/shoes/WomenShoesComponent"
-
 import ErrorBoundary from "./custom/ErrorBoundary"
 
-const Movies = ImportComponent("./pages/movies/movies")
-const SearchMoviesContainer = ImportComponent("./pages/movies/searchMoviesContainer")
+const Movies = Loadable({
+  loader: () => import("./pages/movies/movies"),
+  loading: Loading,
+  timeout: 10000,
+  delay: 300
+})
+
+const SearchMoviesContainer = Loadable({
+  loader: () => import("./pages/movies/searchMoviesContainer"),
+  loading: Loading,
+  timeout: 10000,
+  delay: 300
+})
+
+const Photography = Loadable({
+  loader: () => import("./pages/photography/Photography"),
+  loading: Loading,
+  timeout: 10000,
+  delay: 300
+})
+
+const MenSection = Loadable({
+  loader: () => import("./pages/Men"),
+  loading: Loading,
+  timeout: 10000,
+  delay: 300
+})
+
+const MenShoesComponent = Loadable({
+  loader: () => import("./pages/shoes/MenShoesComponent"),
+  loading: Loading,
+  timeout: 10000,
+  delay: 300
+})
+
+const MenClothingComponent = Loadable({
+  loader: () => import("./pages/clothing/MenClothingComponent"),
+  loading: Loading,
+  timeout: 10000,
+  delay: 300
+})
+
+const WomenSection = Loadable({
+  loader: () => import("./pages/Women"),
+  loading: Loading,
+  timeout: 10000,
+  delay: 300
+})
+
+const WomenClothingComponent = Loadable({
+  loader: () => import("./pages/clothing/WomenClothingComponent"),
+  loading: Loading,
+  timeout: 10000,
+  delay: 300
+})
+
+const WomenShoesComponent = Loadable({
+  loader: () => import("./pages/shoes/WomenShoesComponent"),
+  loading: Loading,
+  timeout: 10000,
+  delay: 300
+})
+
 
 const App = () => {
   return(

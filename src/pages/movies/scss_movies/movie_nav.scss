@@ -1,27 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Butcherman&family=Creepster&family=Monoton&family=Nosifer&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .logo {
   width: 150px;
-  margin-top: 50px;
-  margin-left: 20px;
+  margin: 40px auto;
   position: relative;
 
   h2 {
     font-family: "Monoton", sans-serif;
-    font-size: 35px;
+    font-size: 30px;
     font-weight: 400;
   }
 
   h3 {
     font-family: "Nosifer", sans-serif;
     font-size: 25px;
-    margin-left: 35px;
+    margin-left: 20px;
     margin-top: -10px;
     color:rgb(229, 9, 20);
     letter-spacing: 1.5px;
@@ -31,10 +24,9 @@
     background: url("../../images/popcorn-logo-3.png") no-repeat center center/cover;
     width: 30px;
     height: 30px;
-    color: red;
     position: absolute;
-    right: 1px;
-    top: 50px;
+    right: 15px;
+    top: 45px;
   }
 }
 
@@ -114,7 +106,7 @@
   margin: 100px 20px 0;
 
   li {
-    font-size: 20px;
+    font-size: 16px;
     margin-top: 20px;
 
     a {
@@ -139,5 +131,32 @@
     strong {
       color: rgb(229, 9, 20);
     }
+  }
+}
+
+
+@media screen and (min-width: 650px) {
+  .logo {
+    transform: scale(1.0);
+  }
+
+  .list {
+    margin-left: 30px;
+    margin-top: 150px;
+
+    li {
+      font-size: 20px;
+    }
+  }
+
+  .delivery-contacts {
+    margin-left: 40px;
+  }
+}
+
+
+@media screen and (min-width: 1000px) {
+  .logo {
+    transform: scale(1.2);
   }
 }

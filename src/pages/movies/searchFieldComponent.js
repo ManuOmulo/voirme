@@ -12,8 +12,8 @@ const SearchFieldComponent = (props) => {
         onChange= {handleChange}
         onKeyUp={searchMovies}
       />
-      <button onClick={onSearchSubmit}>
-        <i className="fas fa-search"></i>
+      <button className="search-button" onClick={onSearchSubmit}>
+        Search
       </button>
     </div>
   )

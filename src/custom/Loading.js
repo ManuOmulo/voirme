@@ -1,5 +1,3 @@
-import Loadable from "react-loadable"
-
 export const Loading = (props) => {
   if (props.error) {
     return <div>Error! <button onClick={ props.retry }>Retry</button></div>;
@@ -10,16 +8,4 @@ export const Loading = (props) => {
   } else {
     return null;
   }
-}
-
-
-export const ImportComponent = (path) => {
-  const component = Loadable({
-    loader: () => import(path),
-    loading: Loading,
-    timeout: 10000,
-    delay: 300
-  })
-
-  return component
 }
