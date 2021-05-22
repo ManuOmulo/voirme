@@ -1,0 +1,2 @@
+(this.webpackJsonpvoirme=this.webpackJsonpvoirme||[]).push([[9],{66:function(e,i,n){"use strict";n.r(i);n(0);var t=n(1);i.default=function(){return Object(t.jsx)("div",{children:Object(t.jsx)("h2",{children:"Women's Clothing"})})}}}]);
+//# sourceMappingURL=9.1538cb85.chunk.js.map
