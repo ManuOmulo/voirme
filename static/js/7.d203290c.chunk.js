@@ -1,0 +1,2 @@
+(this.webpackJsonpvoirme=this.webpackJsonpvoirme||[]).push([[7],{58:function(s,e,c){},61:function(s,e,c){"use strict";c.r(e);c(0),c(58);var t=c(24),a=c(1);e.default=function(){return Object(a.jsxs)("div",{className:"photo-window",children:[Object(a.jsx)(t.a,{}),Object(a.jsx)("div",{className:"top",children:Object(a.jsxs)("div",{className:"photo-logo",children:[Object(a.jsx)("p",{className:"p1",children:"Voirme"}),Object(a.jsx)("p",{className:"p2",children:"Clix"}),Object(a.jsx)("div",{className:"photo-avatar"})]})})]})}}}]);
+//# sourceMappingURL=7.d203290c.chunk.js.map
